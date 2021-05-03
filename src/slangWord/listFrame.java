@@ -34,7 +34,7 @@ public class listFrame extends JFrame implements ActionListener, TableModelListe
 
 		// Label
 		JLabel titleLabel = new JLabel();
-		titleLabel.setText("Danh Sách Slang Words");
+		titleLabel.setText("Slang Words");
 		titleLabel.setForeground(Color.blue);
 		titleLabel.setFont(new Font("Arial", Font.PLAIN, 35));
 		titleLabel.setAlignmentX(CENTER_ALIGNMENT);
@@ -49,7 +49,7 @@ public class listFrame extends JFrame implements ActionListener, TableModelListe
 		panelTable.setBackground(Color.black);
 		String data[][] = slangW.getData();
 		dataCopy = slangW.getData();
-		String column[] = { "#", "Slag Word", "Ý Nghĩa" };
+		String column[] = { "STT", "Slag Word", "Ý Nghĩa" };
 		
                 //shareprogramming.net/huong-dan-su-dung-jtable-trong-java-swing/
                 jt = new JTable(data, column);

@@ -25,15 +25,20 @@ public class slangMenu extends JFrame implements ActionListener {
 	slangMenu() {
 		slangWord = readFile.getInstance();
 		// A Label
+		JLabel authorName = new JLabel("Họ tên: Ngô Thị Mĩ Loan");
+		authorName.setForeground(Color.gray);
+		authorName.setFont(new Font("Georgia Bold", Font.PLAIN, 14));
+		authorName.setAlignmentX(CENTER_ALIGNMENT);
+		
+		JLabel authorID = new JLabel("MSSV: 20424049");
+		authorID.setForeground(Color.gray);
+		authorID.setFont(new Font("Georgia Bold", Font.PLAIN, 14));
+		authorID.setAlignmentX(CENTER_ALIGNMENT);
+		
 		JLabel label = new JLabel("Từ Điển");
 		label.setForeground(Color.blue);
-		label.setFont(new Font("Arial", Font.PLAIN, 36));
+		label.setFont(new Font("Arial", Font.PLAIN, 32));
 		label.setAlignmentX(CENTER_ALIGNMENT);
-                
-        JLabel author = new JLabel("Ngô Thị Mĩ Loan - 20424049");
-		author.setForeground(Color.gray);
-		author.setFont(new Font("Georgia Bold", Font.PLAIN, 12));
-		author.setAlignmentX(CENTER_ALIGNMENT);
 		
 		btn1 = new JButton("Danh Sách");
 		btn1.addActionListener(this);
@@ -80,7 +85,7 @@ public class slangMenu extends JFrame implements ActionListener {
 		btn3.setFont(new Font("Arial", Font.PLAIN, 16));
 		btn3.setFocusable(false);
                 
-                btn4 = new JButton("Chỉnh sửa slang word");
+        btn4 = new JButton("Xóa Slang Word");
 		btn4.addActionListener(this);
                 btn4.addMouseListener(new MouseAdapter() {
                     Color color = btn4.getForeground();
@@ -125,8 +130,10 @@ public class slangMenu extends JFrame implements ActionListener {
 		Container con = this.getContentPane();
 		con.setLayout(new BoxLayout(con, BoxLayout.Y_AXIS));
 		con.add(Box.createRigidArea(new Dimension(0, 15)));
+		con.add(authorName);
+        con.add(authorID);
+        con.add(Box.createRigidArea(new Dimension(0, 20)));
 		con.add(label);
-                con.add(author);
 		con.add(Box.createRigidArea(new Dimension(0, 40)));
 		con.add(panelCenter);
 
@@ -151,15 +158,27 @@ public class slangMenu extends JFrame implements ActionListener {
 			}
 		} else if (e.getSource() == btn2) {
 			this.dispose();
-			new slangMenu();
+			try {
+				new findFrame();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 
 		} else if (e.getSource() == btn3) {
 			this.dispose();
-			new slangMenu();
+			try {
+				new addWord();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 
 		} else if (e.getSource() == btn4) {
             this.dispose();
-			new slangMenu();
+            try {
+				new deleteSlangWord();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 		} else if (e.getSource() == btnCancel) {
 			System.exit(0);
 		}
